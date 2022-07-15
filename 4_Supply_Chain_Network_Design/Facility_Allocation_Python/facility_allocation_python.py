@@ -4,7 +4,8 @@
 import pandas as pd
 import pulp as pl
 
-dist= pd.read_excel('/home/neil/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
+dist = pd.read_excel('/mnt/c/Users/ns86s/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
+#dist= pd.read_excel('/home/neil/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
 dist= dist.set_index('Warehouse')
 print(dist)
 
@@ -35,10 +36,11 @@ model= pl.LpProblem('w_alloc',pl.LpMinimize)
 model+= pl.lpSum([demand_dict[(c)]* flows[(w,c)]* dist_dict[(w,c)] for c in customers for w in warehouse])
 
 
+#sum of flows should only equal 1 (city should only have one warehouse supplying it)
 for c in customers:
     model+= pl.lpSum([flows[(w,c)] for w in warehouse])== 1
     
-
+#only require 3 warehouses
 model+= pl.lpSum([open_w[(w)] for w in warehouse])==3
 
 
