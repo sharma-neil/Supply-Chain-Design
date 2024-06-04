@@ -4,8 +4,8 @@
 import pandas as pd
 import pulp as pl
 
-dist = pd.read_excel('/mnt/c/Users/ns86s/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
-#dist= pd.read_excel('/home/neil/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
+#dist = pd.read_excel('/mnt/c/Users/ns86s/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
+dist= pd.read_excel('/home/neilsharma/repos/Supply-Chain-Design/4_Supply_Chain_Network_Design/Facility_Allocation_Python/warehouse_city.xlsx')
 dist= dist.set_index('Warehouse')
 print(dist)
 
